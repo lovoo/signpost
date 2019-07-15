@@ -16,7 +16,7 @@ package oauth.signpost.signature;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Base64;
+import android.util.Base64;
 
 import oauth.signpost.exception.OAuthMessageSignerException;
 import oauth.signpost.http.HttpRequest;
@@ -52,13 +52,9 @@ public abstract class OAuthMessageSigner implements Serializable {
         this.tokenSecret = tokenSecret;
     }
 
-    protected byte[] decodeBase64(String s) {
-        return Base64.getDecoder().decode(s.getBytes());
-    }
+    protected byte[] decodeBase64(String s) { return Base64.decode(s.getBytes(), Base64.DEFAULT); }
 
-    protected String base64Encode(byte[] b) {
-        return new String(Base64.getEncoder().encode(b));
-    }
+    protected String base64Encode(byte[] b) { return new String(Base64.encode(b, Base64.DEFAULT)); }
 
     private void readObject(java.io.ObjectInputStream stream)
             throws IOException, ClassNotFoundException {
