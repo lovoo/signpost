@@ -2,4 +2,7 @@ target
 /signpost-commonshttp3/.settings/
 /signpost-commonshttp4/.settings/
 /signpost-core/.settings/
+.gradle/
+.idea/*
+build/
 .DS_Store
